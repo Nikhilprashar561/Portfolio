@@ -22,7 +22,7 @@ function Navbar({
       className={cn("fixed top-10 inset-x-0 max-w-8xl mx-auto z-50", className)}>
       <Menu setActive={setActive}>
         {/* <MenuItem active={active} item="Products"></MenuItem> */}
-        <Link href={""}>Project</Link>
+        <Link className="hidden sm:block" href={""}>Project</Link>
       </Menu>
     </div>
   );
