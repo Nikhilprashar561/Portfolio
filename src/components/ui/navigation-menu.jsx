@@ -16,7 +16,7 @@ function NavigationMenu({
       data-slot="navigation-menu"
       data-viewport={viewport}
       className={cn(
-        "group/navigation-menu relative flex max-w-max py-1 flex-1 items-center justify-center",
+        "group/navigation-menu relative flex max-w-6xl py-1 flex-1 items-center justify-center",
         className
       )}
       {...props}>

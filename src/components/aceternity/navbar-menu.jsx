@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { Toggle } from "../Toogle";
 import { MenuIcon } from "lucide-react";
 import LeftNav from "../LeftNav";
+import { Bar } from "../Bar";
 
 
 
@@ -41,7 +42,7 @@ export const MenuItem = ({
                 transition={transition}
                 // layoutId ensures smooth animation
                 layoutId="active"
-                className="bg-white dark:bg-black backdrop-blur-sm rounded-2xl overflow-hidden border border-black/[0.2] dark:border-white/[0.1] shadow-xl">
+                className="bg-white dark:bg-black backdrop-blur-sm rounded-1xl overflow-hidden border border-black/[0.2] dark:border-white/[0.1] shadow-xl">
                 <motion.div
                   // layout ensures smooth animation
                   layout
@@ -72,7 +73,7 @@ export const Menu = ({
       {children}
       <div className="flex items-center gap-2">
         <Toggle />
-        <MenuIcon />
+        <Bar />
       </div>
     </nav>
   );

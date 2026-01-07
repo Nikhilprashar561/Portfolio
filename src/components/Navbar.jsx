@@ -19,7 +19,7 @@ function Navbar({
   const [active, setActive] = useState(null);
   return (
     <div
-      className={cn("fixed top-10 inset-x-0 max-w-8xl mx-auto z-50", className)}>
+      className={cn("relative w-full max-w-7xl mx-auto", className)}>
       <Menu setActive={setActive}>
         {/* <MenuItem active={active} item="Products"></MenuItem> */}
         <Link className="hidden sm:block" href={""}>Project</Link>
