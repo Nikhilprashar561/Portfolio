@@ -1,6 +1,9 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import Sidebar from "@/components/Sidebar";
 // import "favicon.png"
 
 const geistSans = Geist({
@@ -24,16 +27,36 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="root"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {children}
-          </ThemeProvider>
-        </body>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="root"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="h-screen w-screen flex overflow-hidden">
+            <aside className="w-fit h-full shrink-0 border-r border-white/10">
+              <Sidebar />
+            </aside>
+
+            <div className="flex flex-col flex-1 overflow-hidden">
+              <header className="h-16 shrink-0">
+                <Header />
+              </header>
+
+              <main className="flex-1 mt-6 px-4 overflow-hidden">
+                {children}
+              </main>
+
+              <footer className="h-12 shrink-0">
+                <Footer />
+              </footer>
+            </div>
+          </div>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

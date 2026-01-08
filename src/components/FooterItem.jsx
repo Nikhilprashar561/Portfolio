@@ -2,7 +2,8 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { CircleCheckIcon, CircleHelpIcon, CircleIcon } from "lucide-react"
+
+import { Fredoka, Poppins } from "next/font/google";
 
 import { useIsMobile } from "../hooks/use-mobile"
 
@@ -14,6 +15,11 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 
+const poppins = Fredoka({
+  subsets: ["latin"],
+  weight: ["500"],
+});
+
 export function FooterMenu() {
   const isMobile = useIsMobile()
 
@@ -22,22 +28,22 @@ export function FooterMenu() {
       <NavigationMenuList className="grid grid-cols-3 gap-1 sm:grid-cols-4 sm:gap-4">
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/">Resume/CV</Link>
+            <Link className={poppins.className} href="/resume">Resume/CV</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/">About-ME</Link>
+            <Link className={poppins.className} href="/about-us">About-ME</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/">Social Media</Link>
+            <Link className={poppins.className} href="">Social Media</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem className="hidden sm:block">
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/">Contact</Link>
+            <Link className={poppins.className} href="/">Contact</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
       </NavigationMenuList>

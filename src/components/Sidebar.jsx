@@ -10,7 +10,7 @@ export default function Sidebar() {
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
-        <SidebarTrigger className={"block pl-2 md:hidden"} />
+        <SidebarTrigger className={"block h-screen w-fit justify-center pl-2 pr-1 md:hidden"} />
       </SidebarInset>
     </SidebarProvider>
   );
