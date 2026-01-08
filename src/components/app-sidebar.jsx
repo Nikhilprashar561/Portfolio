@@ -1,5 +1,5 @@
-import * as React from "react"
-import { GalleryVerticalEnd } from "lucide-react"
+import * as React from "react";
+// import { GalleryVerticalEnd } from "lucide-react"
 
 import {
   Sidebar,
@@ -12,152 +12,148 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
   SidebarRail,
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar";
+import Link from "next/link";
 
 // This is sample data.
 const data = {
   navMain: [
     {
-      title: "Getting Started",
-      url: "#",
+      title: "Full Stack Developer",
+      url: "/resume",
       items: [
-        {
-          title: "Installation",
-          url: "#",
-        },
-        {
-          title: "Project Structure",
-          url: "#",
-        },
+        { title: "Overview", url: "/resume" },
+        { title: "Projects", url: "/resume/skills" },
+        { title: "Authorization", url: "" },
+      ],
+    },
+
+    {
+      title: "Backend",
+      url: "/backend",
+      items: [
+        { title: "Node.js", url: "" },
+        { title: "Express.js", url: "" },
+        { title: "SQL & NO Sql Database", url: "" },
+        { title: "Authentication (JWT)", url: "" },
+        { title: "REST APIs", url: "" },
+      ],
+    },
+
+    {
+      title: "Frontend",
+      url: "/frontend",
+      items: [
+        { title: "HTML, CSS, JavaScript", url: "" },
+        { title: "React.js", url: "/frontend/react" },
+        { title: "Component Architecture", url: "" },
+        { title: "State Management", url: "" },
+        { title: "UI Libraries", url: "" },
+      ],
+    },
+
+    {
+      title: "MERN Stack",
+      url: "/mern",
+      items: [
+        { title: "MongoDB", url: "" },
+        { title: "Express", url: "" },
+        { title: "React Integration", url: "" },
+        { title: "Full Stack Flow", url: "" },
+        { title: "Accessibility", url: "" },
+      ],
+    },
+
+    {
+      title: "Next.js (Full Stack)",
+      url: "/nextjs",
+      items: [
+        { title: "App Router", url: "" },
+        { title: "Server Components", url: "" },
+        { title: "API Routes", url: "" },
+        { title: "Authentication", url: "" },
+        { title: "Deployment Guide", url: "" },
+      ],
+    },
+
+    {
+      title: "DevOps & Hosting",
+      url: "/devops",
+      items: [
+        { title: "Git & GitHub", url: "" },
+        { title: "CI / CD Basics", url: "" },
+        { title: "Docker Basics", url: "" },
+        { title: "Vercel & Netlify", url: "" },
+        { title: "Production Checklist", url: "" },
+      ],
+    },
+
+    {
+      title: "My Journey",
+      url: "/journey",
+      items: [
+        { title: "Learning Path", url: "" },
+        { title: "Mistakes", url: "" },
+        { title: "Career Goals", url: "" },
+      ],
+    },
+
+    {
+      title: "Project Suggestions",
+      url: "/projects",
+      items: [
+        { title: "Beginner Projects", url: "" },
+        { title: "Intermediate Projects", url: "" },
+        { title: "Full Stack Projects", url: "" },
+      ],
+    },
+
+    {
+      title: "Language Specific",
+      url: "/languages",
+      items: [
+        { title: "JavaScript Deep Dive", url: "" },
+        { title: "TypeScript", url: "" },
+        { title: "SQL Basics", url: "" },
+      ],
+    },
+
+    {
+      title: "Project Solutions",
+      url: "/solutions",
+      items: [
+        { title: "Auth System", url: "" },
+        { title: "Dashboard", url: "" },
+        { title: "Role-Based Access", url: "" },
       ],
     },
     {
-      title: "Building Your Application",
-      url: "#",
+      title: "Database Design",
+      url: "/database",
       items: [
-        {
-          title: "Routing",
-          url: "#",
-        },
-        {
-          title: "Data Fetching",
-          url: "#",
-          isActive: true,
-        },
-        {
-          title: "Rendering",
-          url: "#",
-        },
-        {
-          title: "Caching",
-          url: "#",
-        },
-        {
-          title: "Styling",
-          url: "#",
-        },
-        {
-          title: "Optimizing",
-          url: "#",
-        },
-        {
-          title: "Configuring",
-          url: "#",
-        },
-        {
-          title: "Testing",
-          url: "#",
-        },
-        {
-          title: "Authentication",
-          url: "#",
-        },
-        {
-          title: "Deploying",
-          url: "#",
-        },
-        {
-          title: "Upgrading",
-          url: "#",
-        },
-        {
-          title: "Examples",
-          url: "#",
-        },
+        { title: "Schema Design", url: "" },
+        { title: "Relations & Indexing", url: "" },
+        { title: "Optimization Tips", url: "" },
       ],
     },
     {
-      title: "API Reference",
-      url: "#",
+      title: "Schema Design",
+      url: "/schema-design",
       items: [
         {
-          title: "Components",
-          url: "#",
+          title: "Mongoose",
+          url: "",
         },
         {
-          title: "File Conventions",
-          url: "#",
-        },
-        {
-          title: "Functions",
-          url: "#",
-        },
-        {
-          title: "next.config.js Options",
-          url: "#",
-        },
-        {
-          title: "CLI",
-          url: "#",
-        },
-        {
-          title: "Edge Runtime",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Architecture",
-      url: "#",
-      items: [
-        {
-          title: "Accessibility",
-          url: "#",
-        },
-        {
-          title: "Fast Refresh",
-          url: "#",
-        },
-        {
-          title: "Next.js Compiler",
-          url: "#",
-        },
-        {
-          title: "Supported Browsers",
-          url: "#",
-        },
-        {
-          title: "Turbopack",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Community",
-      url: "#",
-      items: [
-        {
-          title: "Contribution Guide",
-          url: "#",
+          title: "Prisma",
+          url: "",
         },
       ],
     },
   ],
-}
+};
 
-export function AppSidebar({
-  ...props
-}) {
+export function AppSidebar({ ...props }) {
   return (
     <Sidebar {...props}>
       <SidebarContent>
@@ -166,16 +162,16 @@ export function AppSidebar({
             {data.navMain.map((item) => (
               <SidebarMenuItem key={item.title}>
                 <SidebarMenuButton asChild>
-                  <a href={item.url} className="font-medium">
+                  <Link href={item.url} className="font-medium">
                     {item.title}
-                  </a>
+                  </Link>
                 </SidebarMenuButton>
                 {item.items?.length ? (
                   <SidebarMenuSub>
                     {item.items.map((item) => (
                       <SidebarMenuSubItem key={item.title}>
                         <SidebarMenuSubButton asChild isActive={item.isActive}>
-                          <a href={item.url}>{item.title}</a>
+                          <Link href={item.url}>{item.title}</Link>
                         </SidebarMenuSubButton>
                       </SidebarMenuSubItem>
                     ))}
