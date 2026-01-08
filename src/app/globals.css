@@ -121,6 +121,14 @@
   }
 }
 
+@media (max-width: 350px){
+  .remove{
+    padding: 2px;
+    margin: 2px;
+    border-radius: 0;
+  }
+}
+
 /* :root {
   --sidebar: hsl(0 0% 98%);
   --sidebar-foreground: hsl(240 5.3% 26.1%);

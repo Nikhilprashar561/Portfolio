@@ -16,6 +16,7 @@ export function Toggle() {
     <Button
       variant="ghost"
       size="icon"
+      className={"cursor-pointer"}
       onClick={() => setTheme(theme === "dark" ? "root" : "dark")}
     >
       {theme === "dark" ? (

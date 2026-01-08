@@ -93,7 +93,7 @@ export const TextRevealCard = ({
             style={{
               textShadow: "4px 4px 15px rgba(0,0,0,0.5)",
             }}
-            className={`text-base sm:text-[1.75rem] ${poppins.className} text-white bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300`}>
+            className={`text-base sm:text-[1.75rem] ${poppins.className} text-white bg-clip-text bg-gradient-to-b from-white to-neutral-300`}>
             {revealText}
           </p>
         </motion.div>

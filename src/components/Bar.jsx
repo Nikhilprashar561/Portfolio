@@ -17,7 +17,7 @@ export function Bar() {
     <>
       <DropdownMenu modal={false}>
         <DropdownMenuTrigger asChild>
-          <Button variant="outline" aria-label="Open menu" size="icon-sm">
+          <Button className={"cursor-pointer"} variant="outline" aria-label="Open menu" size="icon-sm">
             <MoreHorizontalIcon />
           </Button>
         </DropdownMenuTrigger>
