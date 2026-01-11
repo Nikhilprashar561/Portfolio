@@ -26,9 +26,6 @@ export function Bar() {
             <Link href={"https://github.com/Nikhilprashar561"} target="_blank">1. Tools & Tech Stack</Link>
           </DropdownMenuLabel>
           <DropdownMenuLabel className={"flex justify-center items-center"}>
-            <Link href={"https://github.com/Nikhilprashar561"} target="_blank">UI/UX Library.</Link>
-          </DropdownMenuLabel>
-          <DropdownMenuLabel className={"flex justify-center items-center"}>
             <Link href={"https://github.com/Nikhilprashar561"} target="_blank">GSAP & Framer.</Link>
           </DropdownMenuLabel>
           <DropdownMenuLabel className={"flex justify-center items-center"}>
