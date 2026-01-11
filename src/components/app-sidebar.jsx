@@ -87,17 +87,6 @@ const data = {
         { title: "Production Checklist", url: "" },
       ],
     },
-
-    {
-      title: "My Journey",
-      url: "/journey",
-      items: [
-        { title: "Learning Path", url: "" },
-        { title: "Mistakes", url: "" },
-        { title: "Career Goals", url: "" },
-      ],
-    },
-
     {
       title: "Project Suggestions",
       url: "/projects",
