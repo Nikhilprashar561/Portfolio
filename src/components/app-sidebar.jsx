@@ -20,11 +20,22 @@ const data = {
   navMain: [
     {
       title: "Full Stack Developer",
-      url: "/resume",
+      url: "/",
       items: [
-        { title: "Overview", url: "/resume" },
-        { title: "Projects", url: "/resume/skills" },
-        { title: "Authorization", url: "" },
+        { title: "Overview", url: "/about-us" },
+        { title: "Projects", url: "/projects" },
+        { title: "Your Project", url: "" },
+        { title: "Let’s Talk", url: "" },
+      ],
+    },
+
+    {
+      title: "Language Specification",
+      url: "/",
+      items: [
+        { title: "JavaScript", url: "" },
+        { title: "TypeScript", url: "" },
+        { title: "SQL", url: "" },
       ],
     },
 
@@ -37,6 +48,8 @@ const data = {
         { title: "SQL & NO Sql Database", url: "" },
         { title: "Authentication (JWT)", url: "" },
         { title: "REST APIs", url: "" },
+        { title: "GraphQL", url: "" },
+        { title: "Schema Design", url: "" },
       ],
     },
 
@@ -45,98 +58,85 @@ const data = {
       url: "/frontend",
       items: [
         { title: "HTML, CSS, JavaScript", url: "" },
-        { title: "React.js", url: "/frontend/react" },
-        { title: "Component Architecture", url: "" },
-        { title: "State Management", url: "" },
+        { title: "React.js", url: "" },
+        { title: "Typescript", url: "" },
+        { title: "Next.js & Next-auth", url: "" },
+        { title: "Redux Toolkit", url: "" },
+        { title: "Tailwind CSS", url: "" },
         { title: "UI Libraries", url: "" },
+        { title: "Component Architecture", url: "" },
+      ],
+    },
+    {
+      title: "Database",
+      url: "/",
+      items: [
+        { title: "My SQL", url: "" },
+        { title: "MongoDB", url: "" },
+        { title: "Postgress SQL", url: "" },
       ],
     },
 
     {
-      title: "MERN Stack",
-      url: "/mern",
+      title: "Projects",
+      url: "/projects",
       items: [
-        { title: "MongoDB", url: "" },
-        { title: "Express", url: "" },
-        { title: "React Integration", url: "" },
-        { title: "Full Stack Flow", url: "" },
-        { title: "Accessibility", url: "" },
+        { title: "SSM College", url: "" },
+        { title: "Ecommerce", url: "" },
+        { title: "Blinkit", url: "" },
+        { title: "Mystry App", url: "" },
+        { title: "Next - Auth", url: "" },
       ],
     },
 
     {
       title: "Next.js (Full Stack)",
-      url: "/nextjs",
+      url: "/",
       items: [
-        { title: "App Router", url: "" },
+        { title: "Client Components", url: "" },
         { title: "Server Components", url: "" },
         { title: "API Routes", url: "" },
         { title: "Authentication", url: "" },
-        { title: "Deployment Guide", url: "" },
+        { title: "SEO Optimization", url: "" },
       ],
     },
 
     {
       title: "DevOps & Hosting",
-      url: "/devops",
+      url: "/",
       items: [
-        { title: "Git & GitHub", url: "" },
-        { title: "CI / CD Basics", url: "" },
-        { title: "Docker Basics", url: "" },
-        { title: "Vercel & Netlify", url: "" },
-        { title: "Production Checklist", url: "" },
+        { title: "End-to-End Deployment", url: "" },
+        { title: "VPS Hosting", url: "" },
+        { title: "Domain Setup", url: "" },
+        { title: "Hosting Setup", url: "" },
       ],
     },
     {
-      title: "Project Suggestions",
-      url: "/projects",
+      title: "Tools & Software",
+      url: "/",
       items: [
-        { title: "Beginner Projects", url: "" },
-        { title: "Intermediate Projects", url: "" },
-        { title: "Full Stack Projects", url: "" },
+        { title: "Git & Github", url: "" },
+        { title: "Docker", url: "" },
+        { title: "Postman", url: "" },
       ],
     },
-
     {
-      title: "Language Specific",
-      url: "/languages",
+      title: "Application Features",
+      url: "/",
       items: [
-        { title: "JavaScript Deep Dive", url: "" },
-        { title: "TypeScript", url: "" },
-        { title: "SQL Basics", url: "" },
-      ],
-    },
-
-    {
-      title: "Project Solutions",
-      url: "/solutions",
-      items: [
-        { title: "Auth System", url: "" },
-        { title: "Dashboard", url: "" },
+        { title: "Email Verification", url: "" },
+        { title: "File Management", url: "" },
         { title: "Role-Based Access", url: "" },
-      ],
-    },
-    {
-      title: "Database Design",
-      url: "/database",
-      items: [
-        { title: "Schema Design", url: "" },
-        { title: "Relations & Indexing", url: "" },
-        { title: "Optimization Tips", url: "" },
+        { title: "Encrypted Passwords", url: "" },
+        { title: "Protected Routes", url: "" },
       ],
     },
     {
       title: "Schema Design",
       url: "/schema-design",
       items: [
-        {
-          title: "Mongoose",
-          url: "",
-        },
-        {
-          title: "Prisma",
-          url: "",
-        },
+        { title: "Mongoose", url: "" },
+        { title: "Prisma", url: "" },
       ],
     },
   ],

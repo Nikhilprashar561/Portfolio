@@ -23,21 +23,26 @@ export function Bar() {
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-40" align="end">
           <DropdownMenuLabel className={"flex justify-center items-center"}>
-            <Link href={"https://github.com/Nikhilprashar561"} target="_blank">1. Tools & Tech Stack</Link>
+            <Link href={"https://github.com/Nikhilprashar561"} target="_blank">Skills & Tools</Link>
           </DropdownMenuLabel>
           <DropdownMenuLabel className={"flex justify-center items-center"}>
-            <Link href={"https://github.com/Nikhilprashar561"} target="_blank">GSAP & Framer.</Link>
+            <Link href={"https://github.com/Nikhilprashar561"} target="_blank">Project Discussion</Link>
           </DropdownMenuLabel>
           <DropdownMenuLabel className={"flex justify-center items-center"}>
-            <Link href={"https://github.com/Nikhilprashar561"} target="_blank">4. Redux</Link>
+            <Link href={"https://github.com/Nikhilprashar561"} target="_blank">Optimize Solution</Link>
           </DropdownMenuLabel>
           <DropdownMenuLabel className={"flex justify-center items-center"}>
-            <Link href={"https://github.com/Nikhilprashar561"} target="_blank">5. Hire ME!</Link>
+            <Link href={"https://github.com/Nikhilprashar561"} target="_blank">Client Needs</Link>
           </DropdownMenuLabel>
           <DropdownMenuLabel className={"flex justify-center items-center"}>
-            <Link href={"https://github.com/Nikhilprashar561"} target="_blank">6. Full Stack Feature.</Link>
+            <Link href={"https://github.com/Nikhilprashar561"} target="_blank">Work Process</Link>
           </DropdownMenuLabel>
-          
+          <DropdownMenuLabel className={"flex justify-center items-center"}>
+            <Link href={"https://github.com/Nikhilprashar561"} target="_blank">Feedback</Link>
+          </DropdownMenuLabel>
+          <DropdownMenuLabel className={"flex justify-center items-center"}>
+            <Link href={"https://github.com/Nikhilprashar561"} target="_blank">Contact / Hire Me</Link>
+          </DropdownMenuLabel>
         </DropdownMenuContent>
       </DropdownMenu>
     </>
