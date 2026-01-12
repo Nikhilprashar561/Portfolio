@@ -1,5 +1,6 @@
 import * as React from "react";
 // import { GalleryVerticalEnd } from "lucide-react"
+import { Geist, Fredoka } from "next/font/google";
 
 import {
   Sidebar,
@@ -14,6 +15,14 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar";
 import Link from "next/link";
+
+const geist = Geist({
+  weight: ["400"],
+});
+const poppins = Fredoka({
+    subsets: ["latin"],
+    weight: ["500"],
+  });
 
 // This is sample data.
 const data = {
@@ -151,7 +160,7 @@ export function AppSidebar({ ...props }) {
             {data.navMain.map((item) => (
               <SidebarMenuItem key={item.title}>
                 <SidebarMenuButton asChild>
-                  <Link href={item.url} className="font-medium">
+                  <Link className={`${poppins.className}`} href={item.url}>
                     {item.title}
                   </Link>
                 </SidebarMenuButton>
@@ -160,7 +169,7 @@ export function AppSidebar({ ...props }) {
                     {item.items.map((item) => (
                       <SidebarMenuSubItem key={item.title}>
                         <SidebarMenuSubButton asChild isActive={item.isActive}>
-                          <Link href={item.url}>{item.title}</Link>
+                          <Link className={`opacity-75 ${geist.className}`} href={item.url}>{item.title}</Link>
                         </SidebarMenuSubButton>
                       </SidebarMenuSubItem>
                     ))}

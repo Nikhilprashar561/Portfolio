@@ -5,6 +5,12 @@ import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu"
 import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
+import { Fredoka } from "next/font/google"
+
+const poppins = Fredoka({
+    subsets: ["latin"],
+    weight: ["500"],
+  });
 
 function DropdownMenu({
   ...props
@@ -133,7 +139,7 @@ function DropdownMenuLabel({
     <DropdownMenuPrimitive.Label
       data-slot="dropdown-menu-label"
       data-inset={inset}
-      className={cn("px-2 py-1.5 text-sm font-medium data-[inset]:pl-8", className)}
+      className={cn(`px-2 py-1.5 text-sm ${poppins.className} data-[inset]:pl-8`, className)}
       {...props} />
   );
 }

@@ -2,7 +2,6 @@
 import React from "react";
 import { motion } from "motion/react";
 import { Toggle } from "../Toogle";
-import { MenuIcon } from "lucide-react";
 import LeftNav from "../LeftNav";
 import { Bar } from "../Bar";
 

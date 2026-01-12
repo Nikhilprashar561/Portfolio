@@ -3,12 +3,17 @@
 import { cn } from "@/lib/utils";
 import { motion, stagger, useAnimate, useInView } from "motion/react";
 import { useEffect } from "react";
-import { Fredoka, Poppins } from "next/font/google";
+import { Fredoka, Geist } from "next/font/google";
 
 const poppins = Fredoka({
     subsets: ["latin"],
     weight: ["500"],
   });
+
+  
+const geist = Geist({
+  weight: ["400"],
+});
 
 export const TypewriterEffect = ({
   words,

@@ -3,11 +3,14 @@ import React, { useEffect, useRef, useState, memo } from "react";
 import { motion } from "motion/react";
 import { twMerge } from "tailwind-merge";
 import { cn } from "@/lib/utils";
-import { Fredoka, Poppins } from "next/font/google";
+import { Fredoka, Geist } from "next/font/google";
 
 const poppins = Fredoka({
     subsets: ["latin"],
     weight: ["300"],
+  });
+  const geist = Geist({
+    weight: ["400"],
   });
 
 export const TextRevealCard = ({
@@ -93,7 +96,7 @@ export const TextRevealCard = ({
             style={{
               textShadow: "4px 4px 15px rgba(0,0,0,0.5)",
             }}
-            className={`text-base sm:text-[1.75rem] ${poppins.className} text-white bg-clip-text bg-gradient-to-b from-white to-neutral-300`}>
+            className={`text-base sm:text-[1.75rem] ${geist.className} text-white bg-clip-text bg-gradient-to-b from-white to-neutral-300`}>
             {revealText}
           </p>
         </motion.div>
@@ -109,7 +112,7 @@ export const TextRevealCard = ({
         <div
           className=" overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,white,transparent)]">
           <p
-            className={`text-base sm:text-[1.75rem] ${poppins.className} bg-clip-text text-transparent bg-[#f0f0f0]`}>
+            className={`text-base sm:text-[1.75rem] ${geist.className} bg-clip-text text-transparent bg-[#f0f0f0]`}>
             {text}
           </p>
           {/* <MemoizedStars /> */}
