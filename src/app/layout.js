@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
+import { ScrollArea } from "@/components/ui/scroll-area";
 // import "favicon.png"
 
 const geistSans = Geist({
@@ -47,7 +48,9 @@ export default function RootLayout({ children }) {
               </header>
 
               <main className="flex-1 mt-6 px-4 overflow-hidden">
-                {children}
+                <ScrollArea className="h-[98%] w-[100%] rounded-md border my-1 p-4">
+                  {children}
+                </ScrollArea>
               </main>
 
               <footer className="h-12 shrink-0">
