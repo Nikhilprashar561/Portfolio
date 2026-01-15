@@ -1,6 +1,7 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 import { Spotlight } from "../components/aceternity/Spotlight";
+import { Smile } from "lucide-react";
 
 export default function Home() {
   return (
@@ -16,7 +17,9 @@ export default function Home() {
         />
         {/* Radial gradient for the container to give a faded look */}
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black"></div>
-        <h1>Beliver Me i'm developer</h1>
+        <p className="relative z-20 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text py-8 text-4xl font-bold text-transparent sm:text-7xl">
+        Belive Me 
+      </p>
       </div>
       <Spotlight
         className="-top-40 left-0 md:-top-20 md:left-60"
