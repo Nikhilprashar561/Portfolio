@@ -48,7 +48,7 @@ export default function RootLayout({ children }) {
               </header>
 
               <main className="flex-1 mt-6 px-4 overflow-hidden">
-                <ScrollArea className="h-[98%] w-[100%] rounded-md border my-1 p-4">
+                <ScrollArea className="h-[98%] w-[100%] rounded-md border my-1">
                   {children}
                 </ScrollArea>
               </main>
