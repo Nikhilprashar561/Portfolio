@@ -1,5 +1,4 @@
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
-
 import {
   Tooltip,
   TooltipContent,
