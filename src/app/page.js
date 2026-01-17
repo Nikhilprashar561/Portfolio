@@ -20,8 +20,15 @@ export default function Home() {
   const words = [
     "View my skills",
     "view my projects",
+    "for full stack developer",
     "for backend developer",
-    "your product",
+    "for frontend developer",
+    "solve your problems",
+    "build your next project",
+    "what i can do for you",
+    "from idea to production",
+    "for software developer",
+    "something in your mind"
   ];
 
   const [index, setIndex] = useState(0);
@@ -37,7 +44,7 @@ export default function Home() {
   return (
     <>
       <div
-        className={`relative flex h-auto sm:h-[572px] w-full ${GeistSans.className} justify-center items-center py-10 bg-white dark:bg-black`}
+        className={`relative flex h-[525px] sm:h-[572px] w-full ${GeistSans.className} justify-center items-center py-10 bg-white dark:bg-black`}
       >
         <div
           className={cn(
@@ -51,12 +58,12 @@ export default function Home() {
         <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)] dark:bg-black"></div>
         <div className="flex flex-col items-center">
           <p
-            className={`relative z-20 bg-gradient-to-b bg-clip-text py-4 text-3xl ${fredoka.className} sm:text-6xl`}
+            className={`relative z-20 bg-gradient-to-b bg-clip-text py-4 text-3xl ${fredoka.className} sm:text-6xl lg:text-7xl`}
           >
             Why are you here
           </p>
           <span
-            className={`relative ${fredoka.className} inline-block text-2xl sm:text-5xl opacity-80 perspective-[600px]`}
+            className={`relative ${fredoka.className} inline-block text-2xl sm:text-[40px] opacity-80 perspective-[600px]`}
           >
             <span
               key={index}
@@ -71,9 +78,9 @@ export default function Home() {
             </span>
           </span>
           <p
-            className={`relative z-10 mx-auto max-w-lg py-4 text-center text-[15px] font-normal ${fredok.className} text-neutral-600 dark:text-neutral-400`}
+            className={`relative z-10 mx-auto max-w-lg py-4 px-2 text-center text-[15px] font-normal ${fredok.className} text-neutral-600 dark:text-neutral-400`}
           >
-            💼 I'm Nikhil 👋 — a MERN Stack Developer passionate about building
+            💼 I'm Nikhil 👋 — a Full Stack Developer passionate about building
             modern, user-focused web applications. I help startups and
             individuals bring their ideas to life with creative and scalable
             tech solutions.
