@@ -74,12 +74,9 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section className="py-20 px-4 max-w-7xl mx-auto">
+    <section className="py-14 px-4 max-w-7xl mx-auto">
       {/* Section Header */}
       <div className="mb-12 text-center">
-        <h2 className="text-4xl font-bold text-gray-900 dark:text-white">
-          Projects
-        </h2>
         <p className="mt-3 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
           A collection of full-stack, backend, and frontend projects showcasing
           real-world development experience.

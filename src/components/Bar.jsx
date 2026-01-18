@@ -10,8 +10,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import Link from "next/link"
+import { useState } from "react"
+import Contact from "./Contact"
 
 export function Bar() {
+  const [isOpen, setOpen] = useState(false)
 
   return (
     <>
@@ -41,10 +44,11 @@ export function Bar() {
             <Link href={"https://github.com/Nikhilprashar561"} target="_blank">Feedback</Link>
           </DropdownMenuLabel>
           <DropdownMenuLabel className={"flex justify-center items-center"}>
-            <Link href={"https://github.com/Nikhilprashar561"} target="_blank">Contact / Hire Me</Link>
+            <span onClick={() => setOpen(true)} className="cursor-pointer">Contact / Hire Me</span>
           </DropdownMenuLabel>
         </DropdownMenuContent>
       </DropdownMenu>
+      {isOpen && <Contact close={() => setOpen(false)} />}
     </>
   )
 }

@@ -9,9 +9,8 @@ import {
   IconBrandLinkedin,
   IconBrandX,
   IconMail,
-  IconNewSection,
-  IconTerminal2,
 } from "@tabler/icons-react";
+import { FaHashnode } from "react-icons/fa6";
 
 const SocialLinks = ({ close }) => {
   const links = [
@@ -43,6 +42,13 @@ const SocialLinks = ({ close }) => {
         <IconBrandGithub className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
       href: "https://github.com/Nikhilprashar561",
+    },
+    {
+      title: "Hashnode",
+      icon: (
+        <FaHashnode className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "https://hashnode.com/@nikhilprashar561",
     },
   ];
 
