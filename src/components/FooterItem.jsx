@@ -14,6 +14,8 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
+import SocialLinks from "./SocialLinks";
+import Contact from "./Contact";
 
 const poppins = Fredoka({
   subsets: ["latin"],
@@ -22,13 +24,16 @@ const poppins = Fredoka({
 
 export function FooterMenu() {
   const isMobile = useIsMobile()
+  const [isOpen, setOpen] = React.useState(false)
+  const [contactOpen, setOpenContact] = React.useState(false)
 
   return (
+    <>
     <NavigationMenu viewport={isMobile}>
-      <NavigationMenuList className="grid grid-cols-3 gap-1 sm:grid-cols-4 sm:gap-4">
+      <NavigationMenuList className="grid grid-cols-3 flex-col  gap-1 sm:grid-cols-4 sm:gap-4">
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link className={poppins.className} href="/resume">Resume/CV</Link>
+            <Link className={poppins.className} target="_blank" href="https://drive.google.com/file/d/1GrFoR6qyh0DTLguvPfcu_a0huMqK8S7W/view?usp=sharing">Resume/CV</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
@@ -38,16 +43,20 @@ export function FooterMenu() {
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link className={poppins.className} href="">Social Media</Link>
+            <span onClick={() => setOpen(true)} className={`${poppins.className} cursor-pointer`}>Social Media</span>
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem className="hidden sm:block">
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link className={poppins.className} href="/">Contact</Link>
+            <span onClick={() => setOpenContact(true)} className={`${poppins.className} cursor-pointer`}>Contact</span>
           </NavigationMenuLink>
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
+    {isOpen && <SocialLinks  close={() => setOpen(false)} />}
+    {contactOpen && <Contact close={() => setOpenContact(false)} />}
+
+    </>
   )
 }
 

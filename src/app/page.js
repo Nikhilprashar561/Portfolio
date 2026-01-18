@@ -87,11 +87,11 @@ export default function Home() {
           </p>
           <Modal>
             <ModalTrigger className="bg-black dark:bg-white dark:text-black cursor-pointer text-white flex justify-center group/modal-btn">
-              <span
+              <Link href={"https://github.com/Nikhilprashar561?tab=repositories"} target="_blank"
                 className={`group-hover/modal-btn:translate-x-44 text-center transition duration-500 ${fredok.className} `}
               >
                 Github Repositories
-              </span>
+              </Link>
               <div className="-translate-x-40 group-hover/modal-btn:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 text-white z-20">
                 <Link
                   href={"https://github.com/Nikhilprashar561?tab=repositories"}

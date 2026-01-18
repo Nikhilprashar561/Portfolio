@@ -1,180 +1,150 @@
-import React from "react";
-
+import { Github, ExternalLink } from "lucide-react";
 
 const projects = [
   {
-    title: "Job Portal",
-    desc: "Secure login and role-based access for users.",
-    tech: ["React", "Node", "MongoDB"],
+    title: "Task Management System",
+    description:
+      "A React-based employee task management app to assign tasks and track progress.",
+    tech: ["React", "JavaScript", "Tailwind"],
+    github: "#",
+    live: "#",
   },
   {
-    title: "E-Commerce Website",
-    desc: "Product listing, cart, and smooth checkout flow.",
-    tech: ["React", "Express", "Stripe"],
+    title: "Authentication & Authorization",
+    description:
+      "Complete backend auth system using Node.js, Express, MongoDB with EJS frontend.",
+    tech: ["Node.js", "Express", "MongoDB", "EJS"],
+    github: "#",
   },
   {
-    title: "Portfolio Website",
-    desc: "Clean personal website to showcase work.",
+    title: "Password Manager",
+    description:
+      "Secure password manager built with React and styled using Tailwind CSS.",
     tech: ["React", "Tailwind"],
+    github: "#",
+  },
+  {
+    title: "Blogging Website",
+    description:
+      "Authenticated blogging platform where logged-in users can create blogs.",
+    tech: ["Node.js", "MongoDB", "EJS"],
+    github: "#",
+  },
+  {
+    title: "NextJS Auth",
+    description: "Authentication & authorization system built with Next.js.",
+    tech: ["Next.js", "TypeScript"],
+    github: "#",
+  },
+  {
+    title: "Mystery Feedback",
+    description: "Next.js app for collecting anonymous user feedback.",
+    tech: ["Next.js", "TypeScript"],
+    github: "#",
+  },
+  {
+    title: "SSM College Project",
+    description:
+      "MERN-based college management platform for students and teachers.",
+    tech: ["MongoDB", "Express", "React", "Node.js"],
+    github: "#",
+  },
+  {
+    title: "Blinkit MERN Application",
+    description:
+      "Blinkit-like e-commerce app to practice real-world MERN workflows.",
+    tech: ["MERN Stack"],
+    github: "#",
+  },
+  {
+    title: "Learning DSA in JS",
+    description:
+      "JavaScript DSA repository to strengthen problem-solving skills.",
+    tech: ["JavaScript", "DSA"],
+    github: "#",
+  },
+  {
+    title: "MERN E-commerce",
+    description:
+      "Full-stack e-commerce app with authentication, cart, and orders.",
+    tech: ["MERN Stack"],
+    github: "#",
   },
 ];
 
-const steps = [
-  "Understanding your requirement",
-  "Planning & design",
-  "Development",
-  "Testing & delivery",
-];
-
-const Projects = () => {
+export default function Projects() {
   return (
-    <div className="font-sans text-gray-900 scroll-smooth">
-      {/* HERO */}
-      <Section className="min-h-screen flex items-center justify-center text-center">
-        <h1 className="text-4xl md:text-5xl font-bold max-w-3xl mx-auto">
-          I build fast, clean, and reliable websites
-        </h1>
-        <p className="mt-4 text-lg text-gray-600 max-w-xl mx-auto">
-          Modern websites that help businesses grow online.
+    <section className="py-20 px-4 max-w-7xl mx-auto">
+      {/* Section Header */}
+      <div className="mb-12 text-center">
+        <h2 className="text-4xl font-bold text-gray-900 dark:text-white">
+          Projects
+        </h2>
+        <p className="mt-3 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          A collection of full-stack, backend, and frontend projects showcasing
+          real-world development experience.
         </p>
+      </div>
 
-        <div className="mt-8 flex justify-center gap-4">
-          <Button dark href="#projects">
-            View Projects
-          </Button>
-          <Button href="#contact">Contact Me</Button>
-        </div>
-      </Section>
+      {/* Projects Grid */}
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {projects.map((project, index) => (
+          <div
+            key={index}
+            className="group rounded-2xl border border-gray-200 dark:border-gray-800
+                       bg-white dark:bg-zinc-900 p-6 transition
+                       hover:-translate-y-1 hover:shadow-xl"
+          >
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+              {project.title}
+            </h3>
 
-      {/* PROJECTS */}
-      <Section id="projects" gray>
-        <Title>Projects</Title>
-
-        <div className="grid md:grid-cols-3 gap-6 mt-10">
-          {projects.map((p, i) => (
-            <Card key={i}>
-              <h3 className="text-xl font-semibold">{p.title}</h3>
-              <p className="mt-2 text-gray-600">{p.desc}</p>
-
-              <div className="flex gap-2 mt-4 text-sm">
-                {p.tech.map((t, i) => (
-                  <span key={i} className="px-3 py-1 bg-gray-100 rounded-full">
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </Card>
-          ))}
-        </div>
-      </Section>
-
-      {/* PROCESS */}
-      <Section>
-        <Title>How the project works</Title>
-
-        <div className="grid md:grid-cols-4 gap-6 mt-10">
-          {steps.map((step, i) => (
-            <Card key={i} center>
-              {step}
-            </Card>
-          ))}
-        </div>
-      </Section>
-
-      {/* SKILLS */}
-      <Section gray>
-        <Title>Skills</Title>
-
-        <div className="grid md:grid-cols-3 gap-6 mt-10">
-          <Card center>
-            <h3 className="font-semibold">Frontend</h3>
-            <p className="text-gray-600 mt-2">React, Tailwind, JavaScript</p>
-          </Card>
-          <Card center>
-            <h3 className="font-semibold">Backend</h3>
-            <p className="text-gray-600 mt-2">Node, Express, MongoDB</p>
-          </Card>
-          <Card center>
-            <h3 className="font-semibold">Features</h3>
-            <p className="text-gray-600 mt-2">
-              Secure login, Email verification
+            <p className="mt-3 text-sm text-gray-600 dark:text-gray-400">
+              {project.description}
             </p>
-          </Card>
-        </div>
-      </Section>
 
-      {/* ABOUT */}
-      <Section>
-        <Title>About Me</Title>
-        <p className="max-w-2xl mx-auto text-center text-gray-600 mt-4">
-          I’m a full-stack web developer and a college student. I focus on
-          building clean, fast, and user-friendly web applications.
-        </p>
-      </Section>
+            {/* Tech Stack */}
+            <div className="mt-4 flex flex-wrap gap-2">
+              {project.tech.map((tech, i) => (
+                <span
+                  key={i}
+                  className="text-xs px-3 py-1 rounded-full
+                             bg-gray-100 dark:bg-zinc-800
+                             text-gray-700 dark:text-gray-300"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
 
-      {/* CONTACT */}
-      <Section dark id="contact">
-        <h2 className="text-3xl font-bold">Let’s work together</h2>
-        <p className="mt-4 text-gray-300">
-          Have a project in mind? Let’s talk.
-        </p>
+            {/* Actions */}
+            <div className="mt-6 flex items-center gap-4">
+              {project.github && (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  className="flex items-center gap-2 text-sm font-medium
+                             text-gray-700 dark:text-gray-300
+                             hover:text-black dark:hover:text-white"
+                >
+                  <Github size={18} /> GitHub
+                </a>
+              )}
 
-        <div className="mt-6 flex justify-center gap-6 underline">
-          <a href="mailto:your@email.com">Email</a>
-          <a href="#">LinkedIn</a>
-          <a href="#">GitHub</a>
-        </div>
-      </Section>
-    </div>
-  );
-};
-
-/* ---------- Small Reusable Components (Same File) ---------- */
-
-function Section({ children, gray, dark, className = "", id }) {
-  return (
-    <section
-      id={id}
-      className={`px-6 py-20 ${
-        dark
-          ? "bg-black text-white text-center"
-          : gray
-          ? "bg-gray-50"
-          : "bg-white"
-      } ${className}`}
-    >
-      <div className="max-w-6xl mx-auto">{children}</div>
+              {project.live && (
+                <a
+                  href={project.live}
+                  target="_blank"
+                  className="flex items-center gap-2 text-sm font-medium
+                             text-blue-600 hover:underline"
+                >
+                  <ExternalLink size={18} /> Live
+                </a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }
-
-function Title({ children }) {
-  return <h2 className="text-3xl font-bold text-center">{children}</h2>;
-}
-
-function Card({ children, center }) {
-  return (
-    <div
-      className={`p-6 bg-white rounded-xl shadow ${
-        center ? "text-center" : ""
-      }`}
-    >
-      {children}
-    </div>
-  );
-}
-
-function Button({ children, dark, href }) {
-  return (
-    <a
-      href={href}
-      className={`px-6 py-3 rounded-xl ${
-        dark ? "bg-black text-white" : "border border-black"
-      }`}
-    >
-      {children}
-    </a>
-  );
-}
-
-export default Projects;

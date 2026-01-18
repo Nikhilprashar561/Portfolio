@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { motion, stagger, useAnimate, useInView } from "motion/react";
 import { useEffect } from "react";
 import { Fredoka, Geist } from "next/font/google";
+import Link from "next/link";
 
 const poppins = Fredoka({
     subsets: ["latin"],
@@ -110,11 +111,11 @@ export const TypewriterEffectSmooth = ({
           return (
             <div key={`word-${idx}`} className="inline-block">
               {word.text.map((char, index) => (
-                <span
+                <Link href={"/"}
                   key={`char-${index}`}
-                  className={cn(`dark:text-white text-black `, word.className)}>
+                  className={cn(`dark:text-white cursor-pointer text-black `, word.className)}>
                   {char}
-                </span>
+                </Link>
               ))}
             </div>
           );
