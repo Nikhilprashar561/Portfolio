@@ -3,6 +3,12 @@ import { Mail, Github, Linkedin, Send, Twitter, X } from "lucide-react";
 import { Button } from "./ui/button";
 
 const Contact = ({ close }) => {
+
+  const handleChange = (e) => {
+    e.preventDefault()
+    
+  }
+
   return (
     <div
       className="
@@ -103,8 +109,9 @@ const Contact = ({ close }) => {
                     />
 
                     <button
+                      onClick={handleChange}
                       type="submit"
-                      className="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-5 py-2 text-white"
+                      className="inline-flex cursor-pointer items-center gap-2 rounded-lg bg-indigo-600 px-5 py-2 text-white"
                     >
                       <Send size={16} />
                       Send Message
