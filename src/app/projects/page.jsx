@@ -4,95 +4,130 @@ const projects = [
   {
     title: "SSM College Project",
     description:
-      "MERN-based college management platform for students and teachers.",
-    tech: ["MongoDB", "Express", "React", "Node.js"],
+      "A college management platform that connects students and teachers for seamless communication, assignment tracking, and academic management.",
+    tech: [
+      "MERN Stack",
+      "REST Api's",
+      "JWT",
+      "Resend",
+      "Redux",
+      "Shadcn",
+      "Tailwind CSS",
+    ],
     github: "https://github.com/Nikhilprashar561/SSM-College-Project",
   },
   {
-    title: "MERN E-commerce",
+    title: "E-commerce",
     description:
-      "Full-stack e-commerce app with authentication, cart, and orders.",
-    tech: ["MERN Stack"],
+      "Built a full-featured e-commerce website with separate user and admin roles. Users can browse products, create an account, and place orders securely.",
+    tech: ["MERN Stack", "Cloudinary", "JWT", "REST Api's", "Redux", "Shadcn"],
     github: "https://github.com/Nikhilprashar561/MERN-Ecommerce",
   },
   {
     title: "Mystery Feedback",
-    description: "Next.js app for collecting anonymous user feedback.",
-    tech: ["Next.js", "TypeScript"],
+    description:
+      "Feedback System built with Next.js. Implemented frontend pages for submitting feedback and backend API routes for storing and retrieving data.",
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Next-auth",
+      "Resend",
+      "UI Library",
+      "API's Routes",
+      "ZOD",
+    ],
     github: "https://github.com/Nikhilprashar561/Mystry-Feedback",
   },
   {
-    title: "Blinkit MERN Application",
+    title: "Blinkit Application",
     description:
-      "Blinkit-like e-commerce app to practice real-world MERN workflows.",
-    tech: ["MERN Stack"],
+      "Built a Blinkit like grocery ordering web app to practice real world e-commerce workflows using the full stack concepts.",
+    tech: [
+      "MERN Stack",
+      "Mongoose",
+      "JWT",
+      "Resend",
+      "Cloudinary",
+      "Redux",
+      "Tailwind CSS",
+      "Stripe",
+    ],
     github: "https://github.com/Nikhilprashar561/Blinkit-MERN-Application",
   },
   {
     title: "NextJS Auth",
-    description: "Authentication & authorization system built with Next.js.",
-    tech: ["Next.js", "TypeScript"],
+    description:
+      "Implemented NextAuth for secure user authentication and session management.Enabled role-based access to protect routes for users and admins.",
+    tech: ["Next.js", "TypeScript", "JWT", "Nodemailer", "Bcrypt.js"],
     github: "https://github.com/Nikhilprashar561/NextJS-Auth",
   },
   {
     title: "Authentication & Authorization",
     description:
-      "Complete backend auth system using Node.js, Express, MongoDB with EJS frontend.",
-    tech: ["Node.js", "Express", "MongoDB", "EJS"],
+      "mplemented secure user login, registration, and token-based access control.Protected APIs with role-based authorization to ensure secure data access.",
+    tech: [
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Bcrypt",
+      "Cloudinary",
+      "Mongoose",
+      "EJS",
+    ],
     github: "https://github.com/Nikhilprashar561/Authentication-Authorization",
   },
   {
     title: "Task Management System",
     description:
-      "A React-based employee task management app to assign tasks and track progress.",
-    tech: ["React", "JavaScript", "Tailwind"],
+      "Built an employee task management system to assign, track, and manage tasks efficiently.",
+    tech: ["React.js", "JavaScript", "Tailwind"],
     github: "https://github.com/Nikhilprashar561/Task-Management",
   },
   {
     title: "Password Manager",
     description:
-      "Secure password manager built with React and styled using Tailwind CSS.",
-    tech: ["React", "Tailwind"],
+      "Built a URL shortener that converts long links into short, shareable URLs.",
+    tech: ["React.js", "Tailwind CSS", "Javascript"],
     github: "https://github.com/Nikhilprashar561/Password-Manager",
     live: "https://reactpasword.netlify.app/",
   },
   {
     title: "React Todo",
     description:
-      "Secure password manager built with React and styled using Tailwind CSS.",
-    tech: ["React", "Tailwind"],
+      "Built a to-do application to create, update, and manage daily tasks built with React.",
+    tech: ["React.js", "Tailwind CSS", "Javascript"],
     github: "https://github.com/Nikhilprashar561/React-Todo",
     live: "https://reacttoddo.netlify.app/",
   },
   {
     title: "Blogging Website",
     description:
-      "Authenticated blogging platform where logged-in users can create blogs.",
-    tech: ["Node.js", "MongoDB", "EJS"],
+      "Authenticated blogging platform where logged-in users can create blogs and publish posts.",
+    tech: ["Node.js", "MongoDB", "EJS", "Express.js", "Mongoose", "JWT"],
     github: "https://github.com/Nikhilprashar561/Blogging-Website",
     live: "https://res.cloudinary.com/da9c3vejh/video/upload/Timeline_1_z4qubf.mp4?_s=vp-3.6.3",
   },
   {
     title: "Amici Ashford",
     description:
-      "Authenticated blogging platform where logged-in users can create blogs.",
-    tech: ["Node.js", "MongoDB", "EJS"],
+      "Built a responsive frontend UI using React with clean and reusable components.",
+    tech: ["React.js", "Tailwind CSS", "React Router Dom", "UI Library"],
     github: "https://github.com/Nikhilprashar561/Amici-Ashford",
     live: "https://amiciashford.netlify.app/",
   },
   {
     title: "Online Shopping",
     description:
-      "Authenticated blogging platform where logged-in users can create blogs.",
-    tech: ["Node.js", "MongoDB", "EJS"],
+      "Built a static e-commerce website with product listings and a clean UI.",
+    tech: ["HTML", "CSS", "Javascript", "Responsive UI"],
     github: "https://github.com/Nikhilprashar561/Online-Shopping-Store",
     live: "https://shopwithnikhil.netlify.app/",
   },
   {
     title: "Travel Booking",
     description:
-      "Authenticated blogging platform where logged-in users can create blogs.",
-    tech: ["Node.js", "MongoDB", "EJS"],
+      "Built a static travel booking application with destination listings and booking pages.",
+    tech: ["HTML", "CSS", "Javascript", "Responsive UI"],
     github: "https://github.com/Nikhilprashar561/Travel-Website",
     live: "https://travelnikhil.netlify.app/",
   },
