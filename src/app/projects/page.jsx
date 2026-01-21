@@ -26,7 +26,7 @@ const projects = [
   {
     title: "Mystery Feedback",
     description:
-      "Feedback System built with Next.js. Implemented frontend pages for submitting feedback and backend API routes for storing and retrieving data.",
+      "Feedback System built with Next.js . Implemented frontend pages for submitting feedback and backend API routes for storing and retrieving data.",
     tech: [
       "Next.js",
       "TypeScript",

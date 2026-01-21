@@ -33,7 +33,7 @@ export function FooterMenu() {
       <NavigationMenuList className="grid grid-cols-3 flex-col  gap-1 sm:grid-cols-4 sm:gap-4">
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link className={poppins.className} target="_blank" href="https://drive.google.com/file/d/1umJX-xHfYphui8Fqwz_PPIOps1__p65-/view">Resume/CV</Link>
+            <Link className={poppins.className} target="_blank" href="https://drive.google.com/file/d/1EnQvQvlfjHdb0-uN4NXR_uidnIuo1kIk/view?usp=sharing">Resume/CV</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
