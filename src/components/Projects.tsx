@@ -1,174 +1,329 @@
 "use client";
 
-import { ExternalLink, FolderGit2 } from "lucide-react";
-import { GitHubIcon } from "@/components/BrandIcons";
-import { CardSpotlight } from "@/components/ui/CardSpotlight";
+import { useState } from "react";
 
 interface Project {
-  id: string;
   title: string;
-  category: string;
-  description: string;
-  technologies: string[];
-  githubUrl: string;
-  liveUrl?: string;
+  kind: string;
+  desc: string;
+  stack: string[];
+  url: string;
 }
 
 const projects: Project[] = [
   {
-    id: "ssm-college",
     title: "SSM College Management Portal",
-    category: "Full Stack Web App",
-    description:
-      "A college management platform connecting students and teachers for academic management, assignment tracking, announcements, and seamless communication.",
-    technologies: ["MERN Stack", "REST APIs", "JWT", "Resend", "Redux", "Tailwind CSS"],
-    githubUrl: "https://github.com/Nikhilprashar561/SSM-College-Project",
+    kind: "Full stack web app",
+    desc: "Connects students and teachers for assignments, announcements and academic management.",
+    stack: ["MERN Stack", "REST APIs", "JWT", "Resend", "Redux", "Tailwind CSS"],
+    url: "https://github.com/Nikhilprashar561/SSM-College-Project",
   },
   {
-    id: "mern-ecommerce",
     title: "MERN E-Commerce Store",
-    category: "Full Stack Web App",
-    description:
-      "Full-featured e-commerce platform with customer & admin roles. Includes product management, Cloudinary image uploads, shopping cart, and secure checkout.",
-    technologies: ["MERN Stack", "Cloudinary", "JWT", "REST APIs", "Redux", "Tailwind CSS"],
-    githubUrl: "https://github.com/Nikhilprashar561/MERN-Ecommerce",
+    kind: "Full stack web app",
+    desc: "Customer and admin roles with product management, cart and secure checkout.",
+    stack: ["MERN Stack", "Cloudinary", "JWT", "REST APIs", "Redux", "Tailwind CSS"],
+    url: "https://github.com/Nikhilprashar561/MERN-Ecommerce",
   },
   {
-    id: "mystery-feedback",
     title: "Mystery Feedback System",
-    category: "Next.js Web App",
-    description:
-      "Anonymous feedback tool built with Next.js. Features OTP email verification via Resend, custom user URLs, and strict Zod data validation.",
-    technologies: ["Next.js", "TypeScript", "Next-Auth", "Resend", "Zod", "Tailwind CSS"],
-    githubUrl: "https://github.com/Nikhilprashar561/Mystry-Feedback",
+    kind: "Next.js web app",
+    desc: "Anonymous feedback with email OTP verification and personal user links.",
+    stack: ["Next.js", "TypeScript", "Next-Auth", "Resend", "Zod", "Tailwind CSS"],
+    url: "https://github.com/Nikhilprashar561/Mystry-Feedback",
   },
   {
-    id: "blinkit-clone",
     title: "Blinkit Quick-Commerce App",
-    category: "Full Stack Web App",
-    description:
-      "Grocery delivery application replicating quick-commerce workflows with category browsing, real-time cart state, and end-to-end order processing.",
-    technologies: ["MERN Stack", "Mongoose", "JWT", "Redux", "Stripe", "Tailwind CSS"],
-    githubUrl: "https://github.com/Nikhilprashar561/Blinkit-MERN-Application",
+    kind: "Full stack web app",
+    desc: "Grocery delivery flow with category browsing, live cart and order processing.",
+    stack: ["MERN Stack", "Mongoose", "JWT", "Redux", "Stripe", "Tailwind CSS"],
+    url: "https://github.com/Nikhilprashar561/Blinkit-MERN-Application",
   },
   {
-    id: "form-builder",
     title: "Dynamic Form Builder SaaS",
-    category: "SaaS Tool",
-    description:
-      "Custom form creation tool with dynamic field types, real-time response validation, shareable slug-based links, and structured database storage.",
-    technologies: ["Next.js", "tRPC", "PostgreSQL", "Turborepo", "Tailwind CSS"],
-    githubUrl: "https://github.com/Nikhilprashar561",
+    kind: "SaaS tool",
+    desc: "Build forms with dynamic fields and share them through slug-based links.",
+    stack: ["Next.js", "tRPC", "PostgreSQL", "Turborepo", "Tailwind CSS"],
+    url: "https://github.com/Nikhilprashar561",
   },
   {
-    id: "nextjs-auth",
     title: "NextJS Authentication System",
-    category: "Security & Auth",
-    description:
-      "Production-ready authentication setup featuring NextAuth, role-based route protection for users & admins, session tokens, and password encryption.",
-    technologies: ["Next.js", "TypeScript", "Next-Auth", "JWT", "Bcrypt.js"],
-    githubUrl: "https://github.com/Nikhilprashar561/NextJS-Auth",
+    kind: "Security and auth",
+    desc: "Role-based route protection for users and admins, with encrypted passwords.",
+    stack: ["Next.js", "TypeScript", "Next-Auth", "JWT", "Bcrypt.js"],
+    url: "https://github.com/Nikhilprashar561/NextJS-Auth",
   },
 ];
 
 export default function Projects() {
-  return (
-    <section id="projects" className="py-20 sm:py-28 bg-[#f5f2eb]/60 border-y border-stone-200/80 relative">
-      {/* Background Dot Texture */}
-      <div className="absolute inset-0 bg-dot-pattern opacity-40 [mask-image:radial-gradient(ellipse_70%_50%_at_50%_50%,#000_60%,transparent_100%)] pointer-events-none" />
+  const [active, setActive] = useState(0);
+  const current = projects[active];
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-14 sm:mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white border border-stone-200/90 text-stone-700 text-xs font-semibold uppercase tracking-wider mb-3 shadow-lux-sm">
-            <FolderGit2 className="w-3.5 h-3.5 text-indigo-600" />
-            <span>Featured Work</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-stone-900">
-            Selected Projects &amp; Products
-          </h2>
-          <p className="mt-3 text-base text-stone-600 leading-relaxed">
-            Real-world web applications built with a focus on clean architecture, intuitive design, and scalable code.
-          </p>
+  return (
+    <section id="projects" className="wrap sec">
+      <div className="split">
+        <div className="rail">
+          <h2 className="rt">Selected work</h2>
         </div>
 
-        {/* 3-Column Grid of Aceternity CardSpotlight Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {projects.map((project) => (
-            <CardSpotlight
-              key={project.id}
-              radius={240}
-              color="rgba(99, 102, 241, 0.08)"
-              className="p-6 sm:p-7 flex flex-col justify-between hover:border-stone-300 hover:shadow-lux-hover hover:-translate-y-1 transition-all duration-300 bg-white"
-            >
-              <div>
-                {/* Category Pill */}
-                <div className="flex items-center justify-between gap-2 mb-3.5">
-                  <span className="text-[11px] font-mono font-medium text-stone-700 bg-stone-100/80 px-2.5 py-0.5 rounded-full border border-stone-200/70">
-                    {project.category}
+        <div className="work">
+          <div className="plist">
+            {projects.map((p, i) => (
+              <a
+                key={p.title}
+                className={`prow ${i === active ? "on" : ""}`}
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${p.title}, ${p.kind}. Opens GitHub repository`}
+                onMouseEnter={() => setActive(i)}
+                onFocus={() => setActive(i)}
+              >
+                <span className="pmain">
+                  <span className="ptitle">{p.title}</span>
+                  <span className="pkind">{p.kind}</span>
+                  <span className="rdesc">{p.desc}</span>
+                </span>
+                <span className="pgo">
+                  <svg className="ic" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M7 7h10v10" />
+                    <path d="M7 17 17 7" />
+                  </svg>
+                </span>
+              </a>
+            ))}
+          </div>
+
+          <aside className="stage" aria-live="polite">
+            <div className="frame" aria-hidden="true">
+              {active === 0 && (
+                <div className="ill">
+                  <div className="ww" style={{ width: "74%" }}>
+                    <div className="rw">
+                      <i className="dotc acc" />
+                      <i className="sk" style={{ width: "34%" }} />
+                      <span className="fl" />
+                      <i className="sk ind" style={{ width: "30px" }} />
+                    </div>
+                    <div className="rw g8">
+                      <div className="blk ind" />
+                      <div className="blk" />
+                      <div className="blk" />
+                    </div>
+                    <div className="rw">
+                      <i className="dotc sm" />
+                      <i className="sk fl" />
+                      <i className="sk ind" style={{ width: "30px" }} />
+                    </div>
+                    <div className="rw">
+                      <i className="dotc sm" />
+                      <i className="sk" style={{ width: "62%" }} />
+                      <span className="fl" />
+                      <i className="sk ind" style={{ width: "30px" }} />
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {active === 1 && (
+                <div className="ill">
+                  <div className="ww" style={{ width: "68%" }}>
+                    <div className="rw g8">
+                      <div className="tile">
+                        <i className="timg" />
+                        <i className="sk" style={{ width: "70%" }} />
+                        <i className="sk ind" style={{ width: "34px" }} />
+                      </div>
+                      <div className="tile">
+                        <i className="timg" />
+                        <i className="sk" style={{ width: "56%" }} />
+                        <i className="sk ind" style={{ width: "34px" }} />
+                      </div>
+                    </div>
+                    <div className="rw g8">
+                      <div className="tile">
+                        <i className="timg" />
+                        <i className="sk" style={{ width: "64%" }} />
+                        <i className="sk ind" style={{ width: "34px" }} />
+                      </div>
+                      <div className="tile">
+                        <i className="timg" />
+                        <i className="sk" style={{ width: "50%" }} />
+                        <i className="sk ind" style={{ width: "34px" }} />
+                      </div>
+                    </div>
+                  </div>
+                  <span className="badge">
+                    <svg className="ic thin" viewBox="0 0 24 24" aria-hidden="true">
+                      <circle cx="8" cy="21" r="1" />
+                      <circle cx="19" cy="21" r="1" />
+                      <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+                    </svg>
                   </span>
                 </div>
+              )}
 
-                {/* Title */}
-                <h3 className="text-xl font-bold text-stone-900 leading-snug">
-                  {project.title}
-                </h3>
-
-                {/* Description */}
-                <p className="mt-2.5 text-sm text-stone-600 leading-relaxed font-normal">
-                  {project.description}
-                </p>
-
-                {/* Tech Badges */}
-                <div className="mt-5 flex flex-wrap gap-1.5">
-                  {project.technologies.map((tech) => (
-                    <span
-                      key={tech}
-                      className="text-xs px-2.5 py-1 rounded-md bg-[#faf8f5] border border-stone-200/80 text-stone-700 font-mono"
+              {active === 2 && (
+                <div className="ill">
+                  <div className="ww" style={{ width: "70%" }}>
+                    <div className="bub" style={{ background: "var(--stage)", width: "68%" }}>
+                      <i className="sk" style={{ background: "var(--skel2)" }} />
+                      <i className="sk" style={{ width: "58%", background: "var(--skel2)" }} />
+                    </div>
+                    <div
+                      className="bub"
+                      style={{
+                        background: "var(--accent)",
+                        width: "56%",
+                        alignSelf: "flex-end",
+                      }}
                     >
-                      {tech}
-                    </span>
-                  ))}
+                      <i className="sk" style={{ background: "rgba(255,255,255,.55)" }} />
+                      <i className="sk" style={{ width: "55%", background: "rgba(255,255,255,.55)" }} />
+                    </div>
+                    <div className="rw" style={{ justifyContent: "center", gap: "8px" }}>
+                      <i className="otpb" />
+                      <i className="otpb" />
+                      <span className="otpb on">
+                        <i className="caret" />
+                      </span>
+                      <i className="otpb" />
+                    </div>
+                  </div>
                 </div>
-              </div>
+              )}
 
-              {/* Action Links */}
-              <div className="mt-6 pt-5 border-t border-stone-100 flex items-center justify-between">
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-xs font-semibold text-stone-700 hover:text-stone-900 transition-colors"
-                >
-                  <GitHubIcon className="w-4 h-4" />
-                  <span>GitHub Repository</span>
-                </a>
-                {project.liveUrl && (
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-600 hover:text-indigo-800 transition-colors"
-                  >
-                    <span>Live Demo</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
-                )}
+              {active === 3 && (
+                <div className="ill">
+                  <div className="ww" style={{ width: "74%" }}>
+                    <div className="rw" style={{ justifyContent: "space-between" }}>
+                      <i className="dotc" style={{ width: "30px", height: "30px" }} />
+                      <i className="dotc" style={{ width: "30px", height: "30px" }} />
+                      <i className="dotc" style={{ width: "30px", height: "30px" }} />
+                      <i className="dotc" style={{ width: "30px", height: "30px" }} />
+                    </div>
+                    <div className="rw g8">
+                      <div className="tile">
+                        <i className="timg" style={{ height: "30px" }} />
+                        <div className="rw">
+                          <i className="sk fl" />
+                          <i className="dotc sm acc" />
+                        </div>
+                      </div>
+                      <div className="tile">
+                        <i className="timg" style={{ height: "30px" }} />
+                        <div className="rw">
+                          <i className="sk fl" />
+                          <i className="dotc sm acc" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <span className="badge">
+                    <svg className="ic thin" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" />
+                    </svg>
+                  </span>
+                </div>
+              )}
+
+              {active === 4 && (
+                <div className="ill">
+                  <div className="ww" style={{ width: "68%" }}>
+                    <i className="sk ind" style={{ width: "32%" }} />
+                    <div className="fin" />
+                    <i className="sk ind" style={{ width: "42%" }} />
+                    <div
+                      className="fin"
+                      style={{
+                        borderColor: "var(--accent)",
+                        display: "flex",
+                        alignItems: "center",
+                        paddingLeft: "9px",
+                      }}
+                    >
+                      <i className="caret" style={{ height: "12px" }} />
+                    </div>
+                    <div className="rw">
+                      <i className="tog" />
+                      <i className="sk" style={{ width: "34%" }} />
+                      <span className="fl" />
+                      <i className="subm" />
+                    </div>
+                  </div>
+                  <span className="slug">/f/contact</span>
+                </div>
+              )}
+
+              {active === 5 && (
+                <div className="ill">
+                  <span className="roleb" style={{ left: "15%", top: "28%" }}>
+                    <svg className="ic" viewBox="0 0 24 24" aria-hidden="true">
+                      <circle cx="12" cy="8" r="4" />
+                      <path d="M4 21a8 8 0 0 1 16 0" />
+                    </svg>
+                    User
+                  </span>
+                  <span className="roleb" style={{ right: "15%", bottom: "26%" }}>
+                    <svg className="ic" viewBox="0 0 24 24" aria-hidden="true">
+                      <circle cx="7.5" cy="15.5" r="4.5" />
+                      <path d="m10.7 12.3 9.8-9.8" />
+                      <path d="m16 7 3 3" />
+                    </svg>
+                    Admin
+                  </span>
+                  <i className="ring" />
+                  <div className="shield">
+                    <svg className="ic thin" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+                      <path d="m9 12 2 2 4-4" />
+                    </svg>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <div className="sinfo">
+              <div className="skind">{current.kind}</div>
+              <p className="sdesc">{current.desc}</p>
+              <div className="tags">
+                {current.stack.map((tag) => (
+                  <span key={tag} className="tg">
+                    {tag}
+                  </span>
+                ))}
               </div>
-            </CardSpotlight>
-          ))}
+              <a
+                className="slink lnk u"
+                href={current.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View on GitHub{" "}
+                <svg className="ic" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 7h10v10" />
+                  <path d="M7 17 17 7" />
+                </svg>
+              </a>
+            </div>
+          </aside>
         </div>
+      </div>
 
-        {/* View All GitHub Link */}
-        <div className="mt-12 text-center">
+      <div className="split" style={{ marginTop: "32px" }}>
+        <div />
+        <div>
           <a
+            className="btn ghost"
             href="https://github.com/Nikhilprashar561?tab=repositories"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-stone-900 via-stone-800 to-stone-900 hover:from-stone-800 hover:to-zinc-800 text-white text-sm font-medium shadow-lux hover:shadow-lux-hover transition-all active:scale-98 border border-stone-700/50"
           >
-            <GitHubIcon className="w-4 h-4" />
-            <span>View All Repositories on GitHub</span>
+            All repositories on GitHub{" "}
+            <svg className="ic go" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 7h10v10" />
+              <path d="M7 17 17 7" />
+            </svg>
           </a>
         </div>
       </div>

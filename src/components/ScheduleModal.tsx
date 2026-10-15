@@ -126,11 +126,11 @@ export default function ScheduleModal({ isOpen, onClose }: ScheduleModalProps) {
       role="dialog"
       aria-modal="true"
       aria-labelledby="schedule-modal-title"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-950/60 backdrop-blur-xs animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-stone-950/60 backdrop-blur-xs animate-in fade-in duration-200"
     >
       <div className="relative w-full max-w-lg bg-white rounded-2xl shadow-lux-card border border-stone-200 overflow-hidden max-h-[92vh] flex flex-col animate-in zoom-in-95 duration-200">
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4.5 border-b border-stone-200 bg-[#fbf9f5]">
+        <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 sm:py-4.5 border-b border-stone-200 bg-[#fbf9f5]">
           <div className="flex items-center gap-2.5">
             <div className="p-2 rounded-xl bg-stone-100 text-stone-800">
               <Calendar className="w-4 h-4" />
@@ -155,7 +155,7 @@ export default function ScheduleModal({ isOpen, onClose }: ScheduleModalProps) {
         </div>
 
         {/* Modal Body */}
-        <div className="p-6 overflow-y-auto flex-1 bg-white">
+        <div className="p-4 sm:p-6 overflow-y-auto flex-1 bg-white">
           {submitted ? (
             <div className="py-8 text-center space-y-4">
               <div className="w-12 h-12 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto border border-emerald-200">
@@ -222,7 +222,7 @@ export default function ScheduleModal({ isOpen, onClose }: ScheduleModalProps) {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="e.g. Alex Morgan"
-                    className="w-full px-3 py-2 text-xs rounded-xl border border-stone-200 bg-[#fbf9f5] text-stone-900 placeholder:text-stone-400 focus:bg-white focus:outline-hidden focus:ring-2 focus:ring-stone-800 transition-all font-normal"
+                    className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-stone-200 bg-[#fbf9f5] text-stone-900 placeholder:text-stone-400 focus:bg-white focus:outline-hidden focus:ring-2 focus:ring-stone-800 transition-all font-normal"
                   />
                 </div>
 
@@ -237,7 +237,7 @@ export default function ScheduleModal({ isOpen, onClose }: ScheduleModalProps) {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="alex@company.com"
-                    className="w-full px-3 py-2 text-xs rounded-xl border border-stone-200 bg-[#fbf9f5] text-stone-900 placeholder:text-stone-400 focus:bg-white focus:outline-hidden focus:ring-2 focus:ring-stone-800 transition-all font-normal"
+                    className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-stone-200 bg-[#fbf9f5] text-stone-900 placeholder:text-stone-400 focus:bg-white focus:outline-hidden focus:ring-2 focus:ring-stone-800 transition-all font-normal"
                   />
                 </div>
               </div>
@@ -251,7 +251,7 @@ export default function ScheduleModal({ isOpen, onClose }: ScheduleModalProps) {
                   id="sched-topic"
                   value={topic}
                   onChange={(e) => setTopic(e.target.value)}
-                  className="w-full px-3 py-2 text-xs rounded-xl border border-stone-200 bg-[#fbf9f5] text-stone-900 focus:bg-white focus:outline-hidden focus:ring-2 focus:ring-stone-800 transition-all font-normal"
+                  className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-stone-200 bg-[#fbf9f5] text-stone-900 focus:bg-white focus:outline-hidden focus:ring-2 focus:ring-stone-800 transition-all font-normal"
                 >
                   <option value="New Web Application">New Web Application Development</option>
                   <option value="Full-Stack Project">Full-Stack SaaS / Dashboard</option>
@@ -274,7 +274,7 @@ export default function ScheduleModal({ isOpen, onClose }: ScheduleModalProps) {
                     min="2026-01-01"
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
-                    className="w-full px-3 py-2 text-xs rounded-xl border border-stone-200 bg-[#fbf9f5] text-stone-900 focus:bg-white focus:outline-hidden focus:ring-2 focus:ring-stone-800 transition-all font-normal"
+                    className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-stone-200 bg-[#fbf9f5] text-stone-900 focus:bg-white focus:outline-hidden focus:ring-2 focus:ring-stone-800 transition-all font-normal"
                   />
                 </div>
 
@@ -287,7 +287,7 @@ export default function ScheduleModal({ isOpen, onClose }: ScheduleModalProps) {
                     required
                     value={timeSlot}
                     onChange={(e) => setTimeSlot(e.target.value)}
-                    className="w-full px-3 py-2 text-xs rounded-xl border border-stone-200 bg-[#fbf9f5] text-stone-900 focus:bg-white focus:outline-hidden focus:ring-2 focus:ring-stone-800 transition-all font-normal"
+                    className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-stone-200 bg-[#fbf9f5] text-stone-900 focus:bg-white focus:outline-hidden focus:ring-2 focus:ring-stone-800 transition-all font-normal"
                   >
                     <option value="">Select a time slot...</option>
                     {timeSlots.map((slot) => (
@@ -310,7 +310,7 @@ export default function ScheduleModal({ isOpen, onClose }: ScheduleModalProps) {
                   value={note}
                   onChange={(e) => setNote(e.target.value)}
                   placeholder="Share 1-2 sentences about what you want to build or discuss..."
-                  className="w-full px-3 py-2 text-xs rounded-xl border border-stone-200 bg-[#fbf9f5] text-stone-900 placeholder:text-stone-400 focus:bg-white focus:outline-hidden focus:ring-2 focus:ring-stone-800 transition-all resize-none font-normal"
+                  className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-stone-200 bg-[#fbf9f5] text-stone-900 placeholder:text-stone-400 focus:bg-white focus:outline-hidden focus:ring-2 focus:ring-stone-800 transition-all resize-none font-normal"
                 />
               </div>
 

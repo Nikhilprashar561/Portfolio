@@ -1,53 +1,65 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
+import Experience from "@/components/Experience";
 import TechStack from "@/components/TechStack";
 import Services from "@/components/Services";
-import Process from "@/components/Process";
+import Blog from "@/components/Blog";
 import About from "@/components/About";
 import ContactSection from "@/components/ContactSection";
-import Footer from "@/components/Footer";
 import ScheduleModal from "@/components/ScheduleModal";
 
 export default function Home() {
   const [isScheduleOpen, setIsScheduleOpen] = useState(false);
 
+  // Mouse handler for existing Hero 3D tilt effects
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const page = e.currentTarget;
+    if (!page || !page.getBoundingClientRect) return;
+    const pr = page.getBoundingClientRect();
+    page.style.setProperty("--mx", `${e.clientX - pr.left}px`);
+    page.style.setProperty("--my", `${e.clientY - pr.top}px`);
+
+    const t = e.target as HTMLElement | null;
+    if (!t || !t.closest) return;
+
+    const hr = t.closest(".hero-r") as HTMLElement | null;
+    if (hr) {
+      const r = hr.getBoundingClientRect();
+      hr.style.setProperty(
+        "--px",
+        String(((e.clientX - r.left) / r.width - 0.5) * 2)
+      );
+      hr.style.setProperty(
+        "--py",
+        String(((e.clientY - r.top) / r.height - 0.5) * 2)
+      );
+    }
+  };
+
   return (
-    <div className="min-h-screen flex flex-col bg-[#fbf9f5] text-[#1c1917] antialiased selection:bg-amber-100 selection:text-stone-900 font-sans">
-      {/* Sticky Navigation */}
+    <div id="top" className="page" onMouseMove={handleMouseMove}>
+      {/* Existing Navbar - untouched structure and logic, updated font */}
       <Navbar onOpenSchedule={() => setIsScheduleOpen(true)} />
 
-      {/* Main Content Areas */}
-      <main id="main-content" className="flex-1">
-        {/* Section 1: Hero */}
+      <main>
+        {/* Existing Hero - untouched structure and logic, updated font */}
         <Hero onOpenSchedule={() => setIsScheduleOpen(true)} />
 
-        {/* Section 2: Projects */}
+        {/* Updated sections below Hero matching exact design reference from HTML file */}
         <Projects />
-
-        {/* Section 3: Skills & Technologies */}
+        <Experience />
         <TechStack />
-
-        {/* Section 4: What I Do / Services */}
-        <Services onOpenSchedule={() => setIsScheduleOpen(true)} />
-
-        {/* Section 5: Simple 4-Step Workflow */}
-        <Process />
-
-        {/* Section 6: About Nikhil */}
+        <Services />
+        <Blog />
         <About />
-
-        {/* Section 7: Contact Form & Options */}
         <ContactSection onOpenSchedule={() => setIsScheduleOpen(true)} />
       </main>
 
-      {/* Footer */}
-      <Footer />
-
-      {/* Meeting Booking Modal */}
+      {/* Schedule Call Modal */}
       <ScheduleModal
         isOpen={isScheduleOpen}
         onClose={() => setIsScheduleOpen(false)}

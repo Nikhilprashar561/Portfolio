@@ -1,96 +1,88 @@
-"use client";
+import React from "react";
 
-import { Code2, Layout, Server, Cloud, ArrowRight } from "lucide-react";
-
-interface ServicesProps {
-  onOpenSchedule: () => void;
-}
-
-export default function Services({ onOpenSchedule }: ServicesProps) {
-  const services = [
-    {
-      icon: Code2,
-      title: "Full-Stack Web Development",
-      description:
-        "Building responsive, complete web applications from initial concept to launch using Next.js, React, and Node.js.",
-    },
-    {
-      icon: Layout,
-      title: "Frontend & UI Engineering",
-      description:
-        "Crafting clean, accessible, and mobile-friendly user interfaces with smooth interactions and modern styling.",
-    },
-    {
-      icon: Server,
-      title: "Backend & RESTful APIs",
-      description:
-        "Developing secure APIs, role-based authentication, and optimized database schemas using MongoDB and PostgreSQL.",
-    },
-    {
-      icon: Cloud,
-      title: "Deployment & Setup",
-      description:
-        "Setting up custom domains, cloud hosting on Vercel or VPS, and ensuring fast load times and clean SEO configurations.",
-    },
-  ];
-
+export default function Services() {
   return (
-    <section id="services" className="py-20 sm:py-24 bg-[#f5f2eb]/60 border-b border-stone-200/80">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-14">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white border border-stone-200/90 text-stone-700 text-xs font-semibold uppercase tracking-wider mb-3 shadow-lux-sm">
-            <span>Capabilities</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-stone-900">
-            What I Do
-          </h2>
-          <p className="mt-3 text-base text-stone-600 leading-relaxed font-normal">
-            I help startups, businesses, and individuals build high-quality digital products.
-          </p>
+    <section id="services" className="wrap sec">
+      <div className="split">
+        <div className="rail">
+          <h2 className="rt">Services</h2>
         </div>
 
-        {/* 4 Clean Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {services.map((service, index) => {
-            const Icon = service.icon;
-            return (
-              <div
-                key={index}
-                className="rounded-2xl border border-stone-200/90 bg-white p-6 sm:p-7 hover:border-stone-300 hover:shadow-lux hover:-translate-y-0.5 transition-all duration-200"
-              >
-                <div className="p-3 rounded-xl bg-[#f5f2eb] text-stone-800 w-fit mb-4">
-                  <Icon className="w-5 h-5" />
-                </div>
-                <h3 className="text-lg font-bold text-stone-900">
-                  {service.title}
-                </h3>
-                <p className="mt-2 text-sm text-stone-600 leading-relaxed font-normal">
-                  {service.description}
-                </p>
+        <div>
+          <div className="svc">
+            <div className="sv">
+              <svg className="ic thin" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z" />
+                <path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65" />
+                <path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65" />
+              </svg>
+              <div>
+                <div className="h3">Full-stack web apps</div>
+                <p>From concept to launch</p>
               </div>
-            );
-          })}
-        </div>
+            </div>
 
-        {/* Discuss Project Banner */}
-        <div className="mt-10 p-6 sm:p-7 rounded-2xl bg-white border border-stone-200/90 shadow-lux-sm flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-          <div>
-            <h4 className="font-bold text-stone-900 text-base">
-              Need help with a web application or project?
-            </h4>
-            <p className="text-sm text-stone-600 mt-0.5">
-              Let&apos;s talk about your requirements and see how we can bring it to life.
-            </p>
+            <div className="sv">
+              <svg className="ic thin" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <path d="M8 21h8" />
+                <path d="M12 17v4" />
+              </svg>
+              <div>
+                <div className="h3">Frontend and UI</div>
+                <p>Clean, responsive, accessible</p>
+              </div>
+            </div>
+
+            <div className="sv">
+              <svg className="ic thin" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="8" rx="2" />
+                <rect x="2" y="14" width="20" height="8" rx="2" />
+                <path d="M6 6h.01" />
+                <path d="M6 18h.01" />
+              </svg>
+              <div>
+                <div className="h3">Backend and REST APIs</div>
+                <p>Secure, with role-based auth</p>
+              </div>
+            </div>
+
+            <div className="sv">
+              <svg className="ic thin" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 13v8" />
+                <path d="m8 17 4-4 4 4" />
+                <path d="M20 16.7A5 5 0 0 0 18 7h-1.26a8 8 0 1 0-11.62 9" />
+              </svg>
+              <div>
+                <div className="h3">Deployment and setup</div>
+                <p>Vercel, VPS, domains and SEO</p>
+              </div>
+            </div>
           </div>
-          <button
-            onClick={onOpenSchedule}
-            type="button"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-stone-900 via-stone-800 to-stone-900 hover:from-stone-800 hover:to-zinc-800 text-white font-medium text-sm shrink-0 shadow-lux transition-all cursor-pointer border border-stone-700/50"
-          >
-            <span>Let&apos;s Talk</span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
+
+          <div className="proc">
+            <div className="pline" />
+            <div className="pstep">
+              <span className="pnode">1</span>
+              <div className="pt">Plan and scope</div>
+              <div className="ps">Goals, requirements, users</div>
+            </div>
+            <div className="pstep">
+              <span className="pnode">2</span>
+              <div className="pt">Design and model</div>
+              <div className="ps">Wireframes, schemas, APIs</div>
+            </div>
+            <div className="pstep">
+              <span className="pnode">3</span>
+              <div className="pt">Build and test</div>
+              <div className="ps">Clean code, responsive layouts</div>
+            </div>
+            <div className="pstep">
+              <span className="pnode">4</span>
+              <div className="pt">Deploy and support</div>
+              <div className="ps">Hosting, domain, monitoring</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
