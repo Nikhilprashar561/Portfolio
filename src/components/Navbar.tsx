@@ -1,8 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
+import { gsap, ScrollTrigger } from "@/lib/gsapConfig";
+import { useGSAP } from "@/hooks/useGSAP";
 
 interface NavbarProps {
   onOpenSchedule: () => void;
@@ -11,7 +13,22 @@ interface NavbarProps {
 export default function Navbar({ onOpenSchedule }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("");
 
+  const headerRef = useRef<HTMLElement>(null);
+  const progressBarRef = useRef<HTMLDivElement>(null);
+
+  const navLinks = [
+    { name: "Work", href: "#projects", id: "projects" },
+    { name: "Experience", href: "#experience", id: "experience" },
+    { name: "Stack", href: "#stack", id: "stack" },
+    { name: "Services", href: "#services", id: "services" },
+    { name: "Blog", href: "#blog", id: "blog" },
+    { name: "About", href: "#about", id: "about" },
+    { name: "Contact", href: "#contact", id: "contact" },
+  ];
+
+  // Scroll detection for navbar background styling
   useEffect(() => {
     const handleScroll = () => {
       const scrollPos =
@@ -19,7 +36,7 @@ export default function Navbar({ onOpenSchedule }: NavbarProps) {
         document.documentElement.scrollTop ||
         document.body.scrollTop ||
         0;
-      setIsScrolled(scrollPos > 10);
+      setIsScrolled(scrollPos > 15);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -27,19 +44,53 @@ export default function Navbar({ onOpenSchedule }: NavbarProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: "Work", href: "#projects" },
-    { name: "Experience", href: "#experience" },
-    { name: "Stack", href: "#stack" },
-    { name: "Services", href: "#services" },
-    { name: "Blog", href: "#blog" },
-    { name: "About", href: "#about" },
-    { name: "Contact", href: "#contact" },
-  ];
+  useGSAP(
+    () => {
+      // 1. Initial Navbar entrance
+      if (headerRef.current) {
+        gsap.fromTo(
+          headerRef.current,
+          { y: -30, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
+        );
+      }
+
+      // 2. Global Scroll Progress Indicator (across entire document)
+      if (progressBarRef.current) {
+        gsap.to(progressBarRef.current, {
+          scaleX: 1,
+          ease: "none",
+          scrollTrigger: {
+            trigger: document.documentElement,
+            start: "top top",
+            end: "bottom bottom",
+            scrub: 0.2,
+          },
+        });
+      }
+
+      // 3. Section observer for active navbar link
+      navLinks.forEach((link) => {
+        const el = document.getElementById(link.id);
+        if (el) {
+          ScrollTrigger.create({
+            trigger: el,
+            start: "top 45%",
+            end: "bottom 45%",
+            onEnter: () => setActiveSection(link.id),
+            onEnterBack: () => setActiveSection(link.id),
+          });
+        }
+      });
+    },
+    [],
+    headerRef
+  );
 
   return (
     <>
       <header
+        ref={headerRef}
         className={`nav ${isScrolled ? "scrolled" : ""}`}
         style={{
           position: "fixed",
@@ -60,6 +111,24 @@ export default function Navbar({ onOpenSchedule }: NavbarProps) {
           transition: "background-color 0.3s ease, box-shadow 0.3s ease",
         }}
       >
+        {/* Scroll Progress Bar at very top */}
+        <div
+          ref={progressBarRef}
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            height: "3px",
+            background: "linear-gradient(90deg, var(--accent), var(--indigo-2), var(--mint))",
+            transformOrigin: "left",
+            transform: "scaleX(0)",
+            zIndex: 60,
+            pointerEvents: "none",
+          }}
+        />
+
         <div
           className="wrap"
           style={{
@@ -111,24 +180,31 @@ export default function Navbar({ onOpenSchedule }: NavbarProps) {
             </span>
           </a>
 
-          {/* Desktop Navlinks */}
+          {/* Desktop Navlinks with active indicator */}
           <nav
             className="hidden min-[881px]:flex items-center gap-1 ml-auto mr-4"
             aria-label="Main navigation"
           >
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="px-3.5 py-2 rounded-lg text-[15px] font-medium text-[var(--muted)] hover:text-[var(--ink)] hover:bg-[var(--grey)] transition-colors"
-                style={{ textDecoration: "none" }}
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.id;
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className={`px-3.5 py-2 rounded-lg text-[15px] font-medium transition-all ${
+                    isActive
+                      ? "text-[var(--accent)] bg-[rgba(46,42,123,0.06)] font-semibold"
+                      : "text-[var(--muted)] hover:text-[var(--ink)] hover:bg-[var(--grey)]"
+                  }`}
+                  style={{ textDecoration: "none" }}
+                >
+                  {link.name}
+                </a>
+              );
+            })}
           </nav>
 
-          {/* Right Action: Book a call (No icon) & Mobile Menu Button */}
+          {/* Right Action: Book a call & Mobile Menu Button */}
           <div className="flex items-center gap-1.5 min-[380px]:gap-2 shrink-0">
             <button
               className="btn pri sm px-2.5 min-[380px]:px-3 sm:px-5 h-[34px] min-[380px]:h-[36px] min-h-[34px] min-[380px]:min-h-[36px] sm:h-[42px] sm:min-h-[42px] text-[12px] min-[380px]:text-[13px] sm:text-[14.5px] whitespace-nowrap"

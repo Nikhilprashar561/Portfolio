@@ -1,22 +1,114 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
+import { gsap } from "@/lib/gsapConfig";
+import { useGSAP } from "@/hooks/useGSAP";
 
 interface ContactSectionProps {
   onOpenSchedule: () => void;
 }
 
 export default function ContactSection({ onOpenSchedule }: ContactSectionProps) {
+  const sectionRef = useRef<HTMLElement>(null);
+  const headingWords = ["Let's", "work", "together."];
+
   const whatsappUrl = `https://wa.me/916239130326?text=${encodeURIComponent(
     "Hi Nikhil, I saw your portfolio and would like to discuss a project."
   )}`;
 
+  useGSAP(
+    () => {
+      if (!sectionRef.current) return;
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+          once: true,
+        },
+      });
+
+      // Dramatic large heading word reveal
+      const words = sectionRef.current.querySelectorAll(".cth-word-inner");
+      if (words.length > 0) {
+        tl.fromTo(
+          words,
+          { yPercent: 120, opacity: 0 },
+          {
+            yPercent: 0,
+            opacity: 1,
+            stagger: 0.08,
+            duration: 0.9,
+            ease: "power3.out",
+          }
+        );
+      }
+
+      // Status indicator
+      tl.fromTo(
+        ".cstat",
+        { opacity: 0, y: 15 },
+        { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" },
+        "-=0.4"
+      );
+
+      // Contact rows staggered entrance
+      tl.fromTo(
+        ".crows .crow",
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          stagger: 0.12,
+          duration: 0.75,
+          ease: "power3.out",
+        },
+        "-=0.35"
+      );
+
+      // Rotating arrow badge inside each contact row
+      tl.fromTo(
+        ".crows .cgo",
+        { rotate: -45, scale: 0.8 },
+        {
+          rotate: 0,
+          scale: 1,
+          stagger: 0.12,
+          duration: 0.6,
+          ease: "back.out(1.6)",
+        },
+        "-=0.5"
+      );
+
+      // Footer
+      tl.fromTo(
+        ".foot",
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" },
+        "-=0.2"
+      );
+    },
+    [],
+    sectionRef
+  );
+
   return (
-    <section id="contact" className="band">
+    <section ref={sectionRef} id="contact" className="band">
       <div className="wrap">
         <div className="cgrid">
           <div>
-            <h2 className="cth">Let&apos;s work together.</h2>
+            <h2 className="cth" aria-label="Let's work together.">
+              {headingWords.map((word, wi) => (
+                <span
+                  key={wi}
+                  className="inline-block overflow-hidden mr-[0.24em] last:mr-0 align-bottom"
+                >
+                  <span className="cth-word-inner inline-block will-change-transform">
+                    {word}
+                  </span>
+                </span>
+              ))}
+            </h2>
             <p className="cstat">
               <span className="pdot" />
               Available for freelance projects and full-time roles

@@ -1,11 +1,116 @@
-import React from "react";
+"use client";
+
+import React, { useRef } from "react";
+import { gsap } from "@/lib/gsapConfig";
+import { useGSAP } from "@/hooks/useGSAP";
 
 export default function Services() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const plineRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      if (!sectionRef.current) return;
+
+      // Section heading masked reveal
+      gsap.fromTo(
+        ".services-sec-heading",
+        { yPercent: 110 },
+        {
+          yPercent: 0,
+          duration: 0.85,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 85%",
+            once: true,
+          },
+        }
+      );
+
+      // Staggered entrance for Service cards
+      gsap.fromTo(
+        ".svc .sv",
+        { opacity: 0, y: 25 },
+        {
+          opacity: 1,
+          y: 0,
+          stagger: 0.12,
+          duration: 0.75,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".svc",
+            start: "top 85%",
+            once: true,
+          },
+        }
+      );
+
+      // Process timeline scrub: connecting line drawing
+      if (plineRef.current) {
+        gsap.fromTo(
+          plineRef.current,
+          { scaleX: 0 },
+          {
+            scaleX: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".proc",
+              start: "top 85%",
+              end: "bottom 85%",
+              scrub: 0.6,
+            },
+          }
+        );
+      }
+
+      // Process steps stagger reveal
+      gsap.fromTo(
+        ".proc .pstep",
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          stagger: 0.14,
+          duration: 0.7,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".proc",
+            start: "top 85%",
+            once: true,
+          },
+        }
+      );
+
+      // Process step nodes pop-in with bounce
+      gsap.fromTo(
+        ".proc .pnode",
+        { scale: 0.6, opacity: 0 },
+        {
+          scale: 1,
+          opacity: 1,
+          stagger: 0.14,
+          duration: 0.5,
+          ease: "back.out(1.8)",
+          scrollTrigger: {
+            trigger: ".proc",
+            start: "top 85%",
+            once: true,
+          },
+        }
+      );
+    },
+    [],
+    sectionRef
+  );
+
   return (
-    <section id="services" className="wrap sec">
+    <section ref={sectionRef} id="services" className="wrap sec">
       <div className="split">
         <div className="rail">
-          <h2 className="rt">Services</h2>
+          <span className="inline-block overflow-hidden align-bottom">
+            <h2 className="rt services-sec-heading will-change-transform">Services</h2>
+          </span>
         </div>
 
         <div>
@@ -61,7 +166,7 @@ export default function Services() {
           </div>
 
           <div className="proc">
-            <div className="pline" />
+            <div ref={plineRef} className="pline" style={{ transformOrigin: "left" }} />
             <div className="pstep">
               <span className="pnode">1</span>
               <div className="pt">Plan and scope</div>

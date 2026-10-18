@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import { gsap } from "@/lib/gsapConfig";
+import { useGSAP } from "@/hooks/useGSAP";
 
 interface Project {
   title: string;
@@ -58,12 +60,116 @@ const projects: Project[] = [
 export default function Projects() {
   const [active, setActive] = useState(0);
   const current = projects[active];
+  const sectionRef = useRef<HTMLElement>(null);
+  const stageFrameRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      if (!sectionRef.current) return;
+
+      // Section heading masked reveal
+      const heading = sectionRef.current.querySelector(".project-sec-heading");
+      if (heading) {
+        gsap.fromTo(
+          heading,
+          { yPercent: 110 },
+          {
+            yPercent: 0,
+            duration: 0.85,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top 85%",
+              once: true,
+            },
+          }
+        );
+      }
+
+      // Staggered entrance for project rows
+      const rows = sectionRef.current.querySelectorAll(".plist .prow");
+      if (rows.length > 0) {
+        gsap.fromTo(
+          rows,
+          { opacity: 0, x: -30 },
+          {
+            opacity: 1,
+            x: 0,
+            stagger: 0.08,
+            duration: 0.75,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: ".plist",
+              start: "top 85%",
+              once: true,
+            },
+          }
+        );
+      }
+
+      // Stage preview entrance
+      const stage = sectionRef.current.querySelector(".stage");
+      if (stage) {
+        gsap.fromTo(
+          stage,
+          { opacity: 0, x: 25, scale: 0.96 },
+          {
+            opacity: 1,
+            x: 0,
+            scale: 1,
+            duration: 0.85,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: stage,
+              start: "top 85%",
+              once: true,
+            },
+          }
+        );
+      }
+
+      // Bottom button entrance
+      const bottomBtn = sectionRef.current.querySelector(".projects-bottom-btn");
+      if (bottomBtn) {
+        gsap.fromTo(
+          bottomBtn,
+          { opacity: 0, y: 20 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: bottomBtn,
+              start: "top 90%",
+              once: true,
+            },
+          }
+        );
+      }
+    },
+    [],
+    sectionRef
+  );
+
+  // Micro-transition when project changes
+  useEffect(() => {
+    if (stageFrameRef.current) {
+      gsap.fromTo(
+        stageFrameRef.current,
+        { opacity: 0.65, scale: 0.98 },
+        { opacity: 1, scale: 1, duration: 0.35, ease: "power2.out" }
+      );
+    }
+  }, [active]);
 
   return (
-    <section id="projects" className="wrap sec">
+    <section ref={sectionRef} id="projects" className="wrap sec">
       <div className="split">
         <div className="rail">
-          <h2 className="rt">Selected work</h2>
+          <span className="inline-block overflow-hidden align-bottom">
+            <h2 className="rt project-sec-heading will-change-transform">Selected work</h2>
+          </span>
         </div>
 
         <div className="work">
@@ -95,7 +201,7 @@ export default function Projects() {
           </div>
 
           <aside className="stage" aria-live="polite">
-            <div className="frame" aria-hidden="true">
+            <div ref={stageFrameRef} className="frame" aria-hidden="true">
               {active === 0 && (
                 <div className="ill">
                   <div className="ww" style={{ width: "74%" }}>
@@ -314,7 +420,7 @@ export default function Projects() {
         <div />
         <div>
           <a
-            className="btn ghost"
+            className="btn ghost projects-bottom-btn"
             href="https://github.com/Nikhilprashar561?tab=repositories"
             target="_blank"
             rel="noopener noreferrer"
