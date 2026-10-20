@@ -1,8 +1,4 @@
-"use client";
-
-import React, { useRef } from "react";
-import { gsap } from "@/lib/gsapConfig";
-import { useGSAP } from "@/hooks/useGSAP";
+import React from "react";
 
 interface BlogPost {
   title: string;
@@ -45,92 +41,11 @@ const posts: BlogPost[] = [
 ];
 
 export default function Blog() {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useGSAP(
-    () => {
-      if (!sectionRef.current) return;
-
-      // Section heading masked reveal
-      gsap.fromTo(
-        ".blog-sec-heading",
-        { yPercent: 110 },
-        {
-          yPercent: 0,
-          duration: 0.85,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 85%",
-            once: true,
-          },
-        }
-      );
-
-      // Featured article card entrance
-      gsap.fromTo(
-        ".bgrid .feat",
-        { opacity: 0, x: -30, scale: 0.96 },
-        {
-          opacity: 1,
-          x: 0,
-          scale: 1,
-          duration: 0.85,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: ".bgrid",
-            start: "top 85%",
-            once: true,
-          },
-        }
-      );
-
-      // Quick article list stagger entrance
-      gsap.fromTo(
-        ".bgrid .qrow",
-        { opacity: 0, x: 25 },
-        {
-          opacity: 1,
-          x: 0,
-          stagger: 0.08,
-          duration: 0.65,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: ".qlist",
-            start: "top 88%",
-            once: true,
-          },
-        }
-      );
-
-      // Read all link entrance
-      gsap.fromTo(
-        ".qall",
-        { opacity: 0, y: 15 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: ".qall",
-            start: "top 92%",
-            once: true,
-          },
-        }
-      );
-    },
-    [],
-    sectionRef
-  );
-
   return (
-    <section ref={sectionRef} id="blog" className="wrap sec">
+    <section id="blog" className="wrap sec">
       <div className="split">
         <div className="rail">
-          <span className="inline-block overflow-hidden align-bottom">
-            <h2 className="rt blog-sec-heading will-change-transform">Blog</h2>
-          </span>
+          <h2 className="rt">Blog</h2>
         </div>
 
         <div>
